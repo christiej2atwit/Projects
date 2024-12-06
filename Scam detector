@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+/**
+ * This class identifies telemarketer numbers based on the last four digits of
+ * the phone number
+ *
+ * @author Jared Christie
+ */If the phone number is at least 4 digits, and given the last 4 digits of the phone number:
+
+* //The first of these four digits is an 8 or 9 ;
+* //The last digit is an 8 or 9 ;
+* //The second and third digits are the same.
+* //If all three conditions are true, then we will flag the number as a telemarketer number.
+
+public class ScamDetector {
+
+    /**
+     * //Returns true if the correct requirements are met
+     */
+    public static boolean telemarketer(String phonenumber) {
+
+        int b = phonenumber.length();
+        if (b < 4) {//if the number is less than 4 digits, return false
+            return false;
+        }
+        return ((phonenumber.charAt(b - 4) == '8' || phonenumber.charAt(b - 4) == '9')
+                && (phonenumber.charAt(b - 3) == phonenumber.charAt(b - 2))
+                && (phonenumber.charAt(b - 1) == '8' || phonenumber.charAt(b - 1) == '9'));
+
+    } // phonenumber.charAt
+
+    /**
+     * This is the main method of the program.
+     *
+     * @param args Unused
+     */
+    public static void main(String[] args) {
+        try (Scanner input = new Scanner(System.in)) {// Scans
+
+            System.out.printf("Number: "); // Prints a command to the user, telling them to enter the string value
+            String phonenumber = input.next();// provides the input for the string
+
+            if (telemarketer(phonenumber)) {
+                System.out.printf("ignore%n");
+            } // if it meets the requirements of a telemarketer, ignore call
+            else {
+                System.out.printf("answer%n");
+            } // if else, then answer}
+
+            input.close();// closes input
+        }
+
+    }
+}
