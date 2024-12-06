@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+/**
+ * This class reads three integers entered and prints the largest vale
+ *
+ * @author Jared Christie
+ */
+public class Largest {
+
+    public static void main(String[] args) {
+       
+        try(Scanner input = new Scanner(System.in)) {//tries to create the scanner
+            System.out.printf("Enter 3 numbers: "); //Prints a command to the user, telling them to enter the three ineger values
+
+            int a = input.nextInt();//reads the data of the first value
+            int b = input.nextInt();//reads the data of the second value
+            int c = input.nextInt();//reads the data of the third value
+            
+            if ((a > b) && (a > c) || ((a == b) && (a>c)) || ((a == c) && (a>b))) // If a is greater than both b and c, print a
+            {System.out.printf("The largest number is %d%n", a);} //Prints the value of a
+
+            if ((b > a) && (b > c) || ((b == c) && (b>a))) //If b is greater than both a and c, print b
+            {System.out.printf("The largest number is %d%n", b);} //Prints the value of b
+
+            if ((c > a) && (c > b)) // If c is greater than both a and b, print c
+            {System.out.printf("The largest number is %d%n", c);}//Prints the value of c
+
+            if ((a == b) && (b == c)) //If all values are equal to each other, print a as the order does not matter
+            {System.out.printf("The largest number is %d%n", a);} 
+            
+    }
+}
+}
