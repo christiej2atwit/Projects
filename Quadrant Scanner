@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+/**
+ * 
+ *
+ * @author Jared Christie
+ */
+public class Quadrant {
+    /**
+     * Finds which quadrant that a set of given coordinates are in
+     */
+    public static int getQuandrant(double x, double y) {
+        if (x == 0 || y == 0) { //If either value is on the axis, return false
+            return -1;
+        }
+
+        if (x > 0 && y > 0) {
+            return 1;
+        }
+        if (x > 0 && y < 0) {
+            return 4;
+        }
+        if (x < 0 && y > 0) {
+            return 2;
+        }
+        if (x < 0 && y < 0) {
+            return 3; 
+        }
+        return -1; //return false
+    }
+
+    /**
+     * This is the main method of the program.
+     *
+     * @param args Unused
+     */
+    public static void main(String[] args) {
+        //
+        try (Scanner input = new Scanner(System.in)) {// Scans
+
+            System.out.printf("Point: "); // Prints a command to the user, telling them to enter the three ineger values
+
+            double x = input.nextDouble();// reads the data of the first value
+            double y = input.nextDouble();// reads the data of the second value
+
+            if (x != 0 && y != 0) {// if the coordinates are not on an axis line, configure the quadrants
+                if (x > 0 & y > 0) {
+                    System.out.printf("(%.2f, %.2f): 1 Quadrant%n", x, y);//Values for Quadrant 1
+                }
+
+                if (x > 0 & y < 0) {
+                    System.out.printf("(%.2f, %.2f): 4 Quadrant%n", x, y);//Values for Quadrant 4
+                }
+
+                if (x < 0 & y > 0) {
+                    System.out.printf("(%.2f, %.2f): 2 Quadrant%n", x, y);//Values for Quadrant 2
+                }
+
+                if (x < 0 & y < 0) {
+                    System.out.printf("(%.2f, %.2f): 3 Quadrant%n", x, y);//Values for Quadrant 3
+                }
+            } else if (x == 0 || y == 0) {
+                System.out.printf("ERROR: Axis point%n");// If it is on an axis line, print error
+
+            }
+            input.close();// closes input
+        }
+    }
+
+}
