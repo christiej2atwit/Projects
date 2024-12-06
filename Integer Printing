@@ -1,0 +1,85 @@
+import java.util.Scanner;
+
+/**
+ * TODO: document this class
+ *
+ * @author Jared Christie
+ */
+public class Printing {
+
+    /**
+     * 
+     * 
+     * @param begin the first number in the sequence
+     * @param end   the last number in the sequence
+     * 
+     */
+    public static void printLine(int begin, int end) {
+
+        String result = "";
+        if (begin <= end) {//Makes sure that there is an appropriate amount of space based on the length of a digit. For example 999 is a three digit number with 1 space, 99 is a two digit number with 2 spaces in between the next integer, etc
+            for (int i = begin; i <= end; i++) {
+                // System.out.printf(" %d", i);
+                String e = String.format("%d", i);
+                result = result + " ".repeat(4 - e.length());
+                result = result + e;
+                e.length();
+                // System.out.println(.repeat(4-e.length()));
+            }
+
+            System.out.printf(result);
+            System.out.println();
+        }
+
+    }
+
+    public static void main(String[] args) {
+        {
+            // int totalstars = end;
+
+            Scanner scanner = new Scanner(System.in);
+            System.out.printf("Input the first number: ");// asks for the initial number to begin
+            int begin = scanner.nextInt();
+            System.out.printf("Input the last number: ");// asks for the number to end
+            int end = scanner.nextInt();
+            System.out.printf("How many numbers per line: ");// asks the amount per line
+            int amountperline = scanner.nextInt();
+
+            //Checks if end number is less than or eqaul to begin number. If true ends the program
+            if (amountperline <= 0)
+            {
+                System.out.printf("The numbers per line must be positive%n");
+                scanner.close();
+                return;
+            } 
+            
+            else {
+                if (end <= begin) {
+                    System.out.printf("First number can't be larger than the last number%n");
+                    scanner.close();
+                    return;
+                }
+
+                else {
+                    int totalnums = (end + 1) - (begin);// findd total amount of numbers
+                    int fulllines = totalnums / amountperline;// finds the total full lines
+                    int remainingnums = totalnums % amountperline;// gathers the remainding numbers
+
+                    if (amountperline > 0) {// If amount per line is positive, then run the code
+                        for (int i = 0; i < fulllines; i++) {
+
+                            printLine(begin + (i * (amountperline)), begin + (i + 1) * amountperline - 1);
+                        }
+
+                        if (remainingnums != 0) {
+                            printLine(begin + fulllines * amountperline, end);
+                        }
+                    }
+                    scanner.close();
+                    return;
+
+                }
+            }
+        }
+    }
+}
