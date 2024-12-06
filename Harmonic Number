@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+/**
+ * 
+ *
+ * @author Jared Christie
+ */
+public class Harmonic {
+
+    public static void main(String[] args) {
+        //
+try(Scanner input = new Scanner(System.in)) {//Scanner
+            System.out.print("Enter the value of n: "); 
+double value = input.nextInt();
+
+if (value <= 0) 
+{System.out.printf("n should be 1 or greater.%n");} //if the value of n is less than or equal to zero, tell the user to enter a value 1 or greater
+else {
+
+{double s = 0;
+
+for (int i = 1; i <= value; i++) { //While i is less than or equal to the value entered, i increases
+    s = s + (1.00/i);}//Adds the previous harmonic number to the current one entered
+if (value == 1) {System.out.printf("The 1st harmonic number is: %.2f.%n", value);} //prints the 1st harmonic number
+else if (value ==2) {System.out.printf("The 2nd harmonic number is: %.2f.%n", s);}//prints the 2nd harmonic number
+else if (value ==3) {System.out.printf("The 3rd harmonic number is: %.2f.%n", s);}//prints the 3rd harmonic number
+
+else {System.out.printf("The %.0fth harmonic number is: %.2f.%n",value, s); //prints out the harmonic number for numbers over 3
+}
+
+}
+}
+}
+
+    }
+
+}
