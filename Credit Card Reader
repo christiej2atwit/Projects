@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+/**
+ * This class reads a 4 digit number and decides whether the digits are in an ascending order or not
+ *
+ * @author Jared Christie 
+ */
+public class CreditCard {
+
+    public static void main(String[] args) {
+        
+
+         try(Scanner input = new Scanner(System.in)) {//tries to create the scanner
+            System.out.printf("Enter a 4-digit number: ");//Tells user to enter the for digit number
+
+            int number = input.nextInt();//reads the number
+    
+            int Digit1 = number/1000; //extracts the first digit
+            int Digit2 = (number/100) % 10; //extracts the second digit
+            int Digit3 = (number/10) % 10; //extracts the third digit
+            int Digit4 = number % 10; //extracts the fourth digit
+
+            if ((number < 1000) || (number > 9999)) //If the digit is less or more than 4 digits, then print Error
+            System.out.printf("Error%n"); 
+
+            if ((number >= 1000) && (number <= 9999) && (Digit1 < Digit2) && (Digit2 < Digit3) && (Digit3 < Digit4) )
+          {System.out.printf("Increasing%n");} //If the number is 4 digits and all digits are greater than the last, print Increasing
+
+else if  (((number >= 1000) && (number <= 9999) && ((Digit1 >= Digit2) || (Digit2 >= Digit3) || (Digit3 >= Digit4) )))
+           {System.out.printf("Not increasing%n");}}} //If the number is 4 digits but not all digits are greater than the last, print Not Increasing
+          
+           
+
+
+}
+         
+      
+    
