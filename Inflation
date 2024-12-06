@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+/**
+ * //This class calculates the price given the intitial price, the inflation rate and years passed
+ *
+ * @author Jared Christie
+ */
+public class InflationCalculator {
+
+	public static void main(String[] args) {
+        
+		
+try(Scanner input = new Scanner(System.in)) {
+            System.out.printf("Enter the current price of the item: "); //Tells user to enter the intial price of the item
+            double price = input.nextDouble(); //reads data value of the current price
+
+            System.out.printf("Enter the number of years: "); //Tells user to enter that number of years that is under the inflation rate
+            int years = input.nextInt(); //reads data value of the number of years 
+
+            System.out.printf("Enter the inflation rate as a percentage: "); //Tells user to enter the inflation percentage rate
+            double inflation = input.nextDouble();//reads data value of the inflation rate 
+
+			double NewPrice = (price) * Math.pow(((inflation/100) + 1), years); //Calculates the final inflated price using the inflation formula
+
+			if (price < 0)
+			{System.out.printf("The current price must be at least 0!%n");} //If the price is less than 1, it tells the user to enter a different value
+			if (inflation < 0)
+			{System.out.printf("The inflation rate must be at least 0!%n");}//If the inflation price is less than 1, it tells the user to enter a different value
+			if (years < 0)
+			{System.out.printf("The number of years must be at least 0!%n");}//If the numbers of years is less than 1, it tells the user to enter a different value
+
+			if ((years >= 0) && (inflation >= 0) && (price >=0)) //Calculates and prints the new inflated rate if all entered values are over 0
+			{System.out.printf("After %d years, the price will be $%.2f%n", years, NewPrice);}}
+			
+			
+			
+
+}
+}
+
