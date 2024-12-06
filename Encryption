@@ -1,0 +1,81 @@
+import java.util.Scanner;
+
+/**
+ * This class shifts every letter to the right by three in a given line of text, which is the Caesar cypher
+ *
+ * @author Jared Christie
+ */
+public class Encrypter {
+
+    /**
+     * //Encrypts the code by moving each character to the right by 3
+     */
+    public static char encrypt(char c) {//Specific Cases for characters and upper and lowercase letters
+        if (c == 'x') {
+            return ('a');
+        }
+
+        else if (c == 'X') {
+            return ('A');
+        }
+
+        else if (c == 'y') {
+            return ('b');
+        }
+
+        else if (c == 'Y') {
+            return ('B');
+        }
+
+        else if (c == 'z') {
+            return ('c');
+        }
+
+        else if (c == 'Z') {
+            return ('C');
+        }
+
+        else if (c == '.') { //Exceptions based on non-alphabetic characteristics
+            return ('.');
+        }
+
+        else if (c == '?') {
+            return ('?');
+        } else if (c == ' ') {
+            return (' ');
+        } else if (c == '!') {
+            return ('!');
+        }
+
+        else
+            return (char) (c + 3);//returns Caesarian shift
+    }
+
+    /**
+     * 
+     */
+    public static String encrypt(String original) {
+        String s = "";
+        for (int i = 0; i < original.length(); i++) {// Loop that encrypts every letter of a line of text
+            char c = original.charAt(i);
+            s += encrypt(c);
+        }
+        return s;
+
+    }
+
+    /**
+     * This is the main method of the program.
+     *
+     * @param args Unused
+     */
+    public static void main(String[] args) {//Main code that is executed
+        try (Scanner input = new Scanner(System.in)) {
+            System.out.printf("Original: ");
+            String s = input.nextLine();
+            System.out.printf("Encrypted: %s%n", encrypt(s));
+
+        }
+
+    }
+}
