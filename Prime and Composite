@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+/**
+ * Finds out whether a number entered is prime or composite
+ *
+ * @author Jared Christie
+ */
+public class PrimeNumbers {
+
+    public static void main(String[] args) {
+
+        try (Scanner input = new Scanner(System.in)) {// Scanner
+            System.out.print("Number: ");
+
+            int value = input.nextInt();
+            if (value < 2) {
+                System.out.printf("ERROR%n");// If the number entered is less than 2, print error
+            } else if (value == 2 || value == 3) {
+                System.out.printf("Prime%n");// if the number is 2 or 3, print prime
+            } else {
+
+                boolean isPrime = true;
+                double squared = Math.sqrt(value);//squares the value of the input
+
+                for (int i = 2; i <= squared; i++) {
+                    if ((value % i == 0)) {
+                        System.out.printf("Composite%n");//If any number divides evenly into the value, print composite
+                        isPrime = false;//It is not prime
+                        break;//breaks the loop
+
+                    }
+                }
+                    if (isPrime) {
+                        System.out.printf("Prime%n");//If there is no number that devises evenly, print prime
+                    }
+
+                }
+            }
+        }
+
+    }
