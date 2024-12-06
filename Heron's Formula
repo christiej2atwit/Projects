@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+/**
+ * 
+ *
+ * @author Jared Christie
+ */Finds the area of the triangle given its sides
+public class HeronFormula {
+
+    public static void main(String[] args) {
+        
+
+        try(Scanner input = new Scanner(System.in)) {
+            System.out.printf("Enter the length of side a: ");
+            double a = input.nextDouble();//inputs for the first side of the triangle
+            System.out.printf("Enter the length of side b: ");
+            double b = input.nextDouble();//inputs for the second side of the triangle
+            System.out.printf("Enter the length of side c: ");
+            double c = input.nextDouble();//inputs for the third side of the triangle
+
+
+            double semi = (a + b + c)/2; //creates the variable s for herons formula
+            double area = Math.sqrt((semi) * (semi-a) * (semi-b) * (semi-c));//uses heron formula to create the area variable
+      
+            if (((a <= 0) || (b<=0) || (c<=0)))
+            {System.out.printf("Side lengths must all be positive%n") ;}//All side lengths must be positive numbers
+           
+            if ((a >= (b+c)) && ( (a > 0) & (b > 0) & (c > 0)))
+            {System.out.printf("Side a is too long%n");}//if any of the side lengths is greater than or equal to the sum of the other sides, herons formula does not work
+
+            if ((b >= (a+c)) && ( (a > 0) & (b > 0) & (c > 0)))
+            {System.out.printf("Side b is too long%n");}//if any of the side lengths is greater than or equal to the sum of the other sides, herons formula does not work
+
+            if ((c >= (a+b)) && ( (a > 0) & (b > 0) & (c > 0)))
+            {System.out.printf("Side c is too long%n");}//if any of the side lengths is greater than or equal to the sum of the other sides, herons formula does not work
+
+            if ((((semi-a) * (semi-b) * (semi-c)) > 0) && ((a>0) && (b>0) && (c>0)))
+            {System.out.printf("The area is %.2f%n", area);}//if all the side lengths are positive and no one side length is too length, print the area of the triangle
+    }
+    }
+    }
