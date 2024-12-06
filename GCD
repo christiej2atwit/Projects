@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+/**
+ * 
+ *
+ * @author Jared Christie
+ */
+public class GCD {
+    /**
+     * Finds the greatest common divisor among two integers
+     * 
+     * @param num1   The first number
+     * @param num2   The second number
+     * @param return j
+     */
+
+    public static int gcd(int num1, int num2) {
+        while (num2 != 0) {
+            int something = num2;
+            num2 = num1 % num2; //Gets the whole number that is divisible
+            num1 = something;
+        }
+        return num1; //Returns the greatest divisor
+    }
+
+    /**
+     * This is the main method of the program.
+     *
+     * @param args Unused
+     */
+    public static void main(String[] args) {
+        int num1, num2, gcd;
+        try (Scanner input = new Scanner(System.in)) {// Scans
+            System.out.printf("Enter a: ");
+            num1 = input.nextInt();//input for the first number
+            System.out.printf("Enter b: ");
+            num2 = input.nextInt();//Input for the second number
+            gcd = gcd(num1, num2);// Calls GCD
+        }
+
+        if (num1 >= 1 & num2 >= 1)
+            System.out.printf("The GCD of %d and %d is %d%n", num1, num2, gcd);// Prints the GCD
+        
+else {System.out.printf("Inputs must both be positive.%n");} //If the input does not meet the requirements, print this
+    }
+     
+}
